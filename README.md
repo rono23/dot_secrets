@@ -2,6 +2,10 @@
 
 Enable dot syntax on nested Rails.application.secrets
 
+## Requirements
+
+Ruby >= 2.0 and Ruby on Rails >= 4.1.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -38,9 +42,11 @@ Rails.application.secrets.foo is ActiveSupport::OrderedOptions. It's like a Hash
         each: SOMEKEY2
         merge: SOMEKEY3
         1234: SOMEKEY4
-        123abc: SOMEKEY4
+        123abc: SOMEKEY5
 
 Rails.application.secrets.foo.key will raise an error, but Rails.application.secrets.foo[:key] returns SOMEKEY1.
+
+If you want to access secrets as a Hash class, you can do like ```Hash[Rails.application.secrets.foo]```.
 
 ## Contributing
 
